@@ -4,6 +4,8 @@ const render = require('koa-art-template');
 const path = require('path');
 var static = require('koa-static');
 var bodyParser = require('koa-bodyparser');
+var admin = require('./routes/admin.js');
+var api = require('./routes/api.js');
 
 var DB = require('./module/db.js');
 
@@ -77,6 +79,9 @@ router.get('/remove', async (ctx) => {
   let result = DB.remove('user', {_id: DB.getObjectId(id)});
   ctx.redirect("/");
 });
+
+router.use('/admin', admin);
+router.use('/api', api);
 
 app.use(router.routes());
 app.use(router.allowedMethods());
