@@ -1,11 +1,11 @@
 let router = require('koa-router')();
 
 router.get('/newslist', async(ctx) => {
-  ctx.body = '这是/api/newslist页面';
+  await ctx.render('newslist');
 });
 
 router.get('/newscate', async(ctx) => {
-  ctx.body = '这是/api/newscate页面';
+  await ctx.render('newscate');
 });
 
 module.exports = router.routes();

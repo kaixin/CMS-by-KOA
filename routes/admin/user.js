@@ -1,15 +1,15 @@
 let router = require('koa-router')();
 
 router.get('/add', async(ctx) => {
-  ctx.body = '这是/admin/user/add页面'
+  await ctx.render('admin/user/add');
 });
 
 router.get('/edit', async(ctx) => {
-  ctx.body = '这是/admin/user/edit页面'
+  await ctx.render('admin/user/edit');
 });
 
 router.get('/delete', async(ctx) => {
-  ctx.body = '这是/admin/user/delete页面'
+  await ctx.render('admin/user/delete');
 });
 
 module.exports = router.routes();
