@@ -1,15 +1,13 @@
 var router = require('koa-router')();
 
+let user = require('./admin/user.js');
+let focus = require('./admin/focus.js');
+
 router.get('/', async(ctx) => {
   ctx.body = '这是/admin页面';
 });
 
-router.get('/user', async(ctx) => {
-  ctx.body = '这是/admin/user页面'
-});
-
-router.get('/focus', async(ctx) => {
-  ctx.body = '这是/admin/focus页面';
-});
+router.use('/user', user);
+router.use('/focus', focus);
 
 module.exports = router.routes();
